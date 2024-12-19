@@ -211,7 +211,7 @@ func (c *Controller) Start() {
 	}()
 	select {
 	case <-done:
-	case <-time.After(time.Minute):
+	case <-time.After(time.Duration(5) * time.Minute):
 		klog.Fatalf("Unable to perform initial IP and Port allocation check")
 	}
 }
